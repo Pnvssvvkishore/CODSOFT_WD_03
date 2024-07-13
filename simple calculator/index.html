@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+        }
+
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 20px;
+            font-size: 24px;
+            border: none;
+            border-bottom: 2px solid #ddd;
+            margin-bottom: 20px;
+            text-align: right;
+            box-sizing: border-box;
+        }
+
+        input[type="button"] {
+            width: 100%;
+            padding: 20px;
+            font-size: 18px;
+            margin: 5px 0;
+            border: none;
+            border-radius: 5px;
+            background: #f0f0f0;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.1s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="button"]:hover {
+            background: #e0e0e0;
+        }
+
+        input[type="button"]:active {
+            transform: scale(0.98);
+        }
+
+        input[type="button"].operator {
+            background: #ffa500;
+            color: #fff;
+        }
+
+        input[type="button"].operator:hover {
+            background: #ff8c00;
+        }
+
+        input[type="button"].equal {
+            background: #4caf50;
+            color: #fff;
+        }
+
+        input[type="button"].equal:hover {
+            background: #45a049;
+        }
+
+        input[type="button"].clear {
+            background: #f44336;
+            color: #fff;
+        }
+
+        input[type="button"].clear:hover {
+            background: #e53935;
+        }
+
+        td {
+            padding: 5px;
+        }
+
+        td input[type="button"] {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <form name="calculator">
+        <table>
+            <tr>
+                <td colspan="4"><input type="text" id="display" disabled></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="1" onclick="calculator.display.value +='1'"></td>
+                <td><input type="button" value="2" onclick="calculator.display.value +='2'"></td>
+                <td><input type="button" value="3" onclick="calculator.display.value +='3'"></td>
+                <td><input type="button" class="operator" value="+" onclick="calculator.display.value +='+'"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="4" onclick="calculator.display.value +='4'"></td>
+                <td><input type="button" value="5" onclick="calculator.display.value +='5'"></td>
+                <td><input type="button" value="6" onclick="calculator.display.value +='6'"></td>
+                <td><input type="button" class="operator" value="-" onclick="calculator.display.value +='-'"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="7" onclick="calculator.display.value +='7'"></td>
+                <td><input type="button" value="8" onclick="calculator.display.value +='8'"></td>
+                <td><input type="button" value="9" onclick="calculator.display.value +='9'"></td>
+                <td><input type="button" class="operator" value="*" onclick="calculator.display.value +='*'"></td>
+            </tr>
+            <tr>
+                <td><input type="button" class="clear" value="C" onclick="calculator.display.value =''"></td>
+                <td><input type="button" value="0" onclick="calculator.display.value +='0'"></td>
+                <td><input type="button" class="equal" value="=" onclick="calculator.display.value =eval(calculator.display.value)"></td>
+                <td><input type="button" class="operator" value="/" onclick="calculator.display.value +='/'"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
